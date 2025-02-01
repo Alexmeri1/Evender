@@ -1,6 +1,8 @@
 <script>
   import "./styles.css";
   import "../../global.css";
+ 
+
 </script>
 
 <svelte:head>

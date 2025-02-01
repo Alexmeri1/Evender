@@ -25,6 +25,8 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"evender": "file:"
+		"evender": "file:",
+		"sass-embedded": "^1.83.4",
+		"scss": "^0.2.4"
 	}
 }

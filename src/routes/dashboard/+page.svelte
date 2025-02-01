@@ -1,5 +1,6 @@
-<script lang='ts'>
+<script>
   import "./styles.css";
+  import "../../global.css";
 </script>
 
 <svelte:head>
@@ -10,15 +11,9 @@
 </svelte:head>
 
 <body>
-  <div class="container">
+  <div class="card">
 
-    <img class="card-image" src="#" alt="Card Image">
-
-    <h2 class="card-title">Card Title</h2>
-    <p class="card-details">Location</p>
-    <p class="card-details">Details</p>
+    <h2 class="card-title">Card.Title</h2>
+    
   </div>
-
-
-  <div class="sidebar">DECKS</div>
 </body>

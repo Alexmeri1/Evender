@@ -12,10 +12,9 @@
   <title>Dashboard</title>
 </svelte:head>
 
-<body>
+<div class="body">
   <div class="card">
 
-    <h2 class="card-title">Card.Title</h2>
-    
+    <h2 class="card-title">Card.Title.blababalbal</h2>
   </div>
-</body>
+</div>

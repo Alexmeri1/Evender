@@ -6,7 +6,7 @@ URL = 'https://www.eventbriteapi.com/v3/events/search/'
 
 data = {
     "code": "YOUR_ACCESS_CODE",
-    "client_secret": "YOUR_CLIENT_SECRET",
+    "client_secret": "CNJT445TL3PPN5BFUGOV73F3CGKTHJKGM42TIYLEKXSSBJ6T2S",
     "client_id": "YOUR_API_KEY",
     "grant_type": "authorization_code",
 }

@@ -1,21 +1,18 @@
-<script>
-  import "./styles.css";
-  import "../../global.css";
- 
-
+<script lang="ts">
+	import './styles.css';
+	import '../../global.css';
+	import ModelCard from '$lib/resources/components/modelCard.svelte';
 </script>
 
 <svelte:head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1.0">
-  
-  <title>Dashboard</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="initial-scale=1.0" />
+
+	<title>Dashboard</title>
 </svelte:head>
 
-<body>
-  <div class="card">
+<div style="background-color: transparent;">
 
-    <h2 class="card-title">Card.Title</h2>
-    
-  </div>
-</body>
+  
+  <ModelCard id="any1" intensity="-10, 5"/>
+</div>

@@ -6,3 +6,9 @@
   --navy: #292f47
 
 }
+*{
+  background-color: var(--navy);
+}
+h2{
+  color: var(--yellow);
+}

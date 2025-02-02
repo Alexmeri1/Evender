@@ -38,25 +38,25 @@
   }
   
   body::before {
-    @include dots(50);
+    @include dots(20);
     animation-duration: 64s;
     animation-delay: -27s;
   }
   
   body::after {
-    @include dots(50);
+    @include dots(20);
     animation-duration: 63s;
     animation-delay: -32s;
   }
   
   head::before {
-    @include dots(50);
+    @include dots(20);
     animation-duration: 62s;
     animation-delay: -23s;
   }
   
   head::after {
-    @include dots(50);
+    @include dots(20);
     animation-duration: 61s;
     animation-delay: -19s;
   }

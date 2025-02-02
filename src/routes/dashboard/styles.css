@@ -105,6 +105,10 @@ html, body {
   filter: saturate(100%) ;
 }
 
+#right-arrow:active{
+  transform: scale(0.1);
+}
+
 #left-arrow{
   position: fixed;
   margin: 20px;
@@ -119,6 +123,10 @@ html, body {
   transition: all 0.2s ease;
   filter: saturate(100%);
 
+}
+
+#left-arrow:active{
+  transform: scale(0.1);
 }
 
 

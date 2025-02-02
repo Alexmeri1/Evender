@@ -5,9 +5,10 @@
   export let containerClassName: string | undefined = undefined;
   export let isMouseEntered = false;
   export let intensity: string = "10, 100";
-  export let style: string | undefined = undefined;
+  export let style: string = "";
   export let id: string | undefined = undefined;
   export let background: string = "blue";
+  export let border: string;
 
   const [Intx, Inty] = intensity.split(",").map(Number);
   const intensityObject = { x: 100 / Intx, y: 100 / Inty };
@@ -38,7 +39,7 @@
 <div
   id="main-{id}"
   class={cn("flex items-center justify-center py-20", containerClassName)}
-  style="perspective: 1000px; {style ? style : ''}"
+  style="perspective: 1000px;"
 >
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
@@ -50,7 +51,7 @@
       "relative flex items-center justify-center transition-all duration-200 ease-linear",
       className
     )}
-    style="transform-style: preserve-3d; width:400px; height:500px; background:{background}; border-radius:20px"
+    style="transform-style: preserve-3d; width:400px; height:500px; background:{background};border-style:{border}; {style}"
     {id}
   >
     <slot />

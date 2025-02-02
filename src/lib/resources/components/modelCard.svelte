@@ -15,6 +15,7 @@
 		invert: ['65%', '100%'],
 		scale: [1, 1.1]
 	};
+	export let border:string;
 
 	export let intensity: string;
 	// export let transition:
@@ -105,24 +106,56 @@
 		<CardContainer
 			bind:isMouseEntered
 			{intensity}
-			style="border-radius: 20px; z-index:95; width:{width}; height:{height}; margin:0; margin-bottom:10px; color: {color}; transition: all 1s ease-in-out; transform: scale(1); opacity:1;"
+			style="border-radius: 20px; z-index:95; width:{width}; height:{height}; margin:0; margin-bottom:10px; color: {color}; transition: all 1s ease-in-out; transform: scale(1); opacity:1; {style}"
 			id={mainId}
 			className={"yes"}
       background={background}
+			border={border}
 		>
 			<CardBody
 				className=" "
 				style="width:{width ? width + 'px' : width}; background-color: {background}; height:{height
 					? height + 'px'
-					: height}; font-family: gilroy, sans-serif; transition: all 1s ease-in-out; {style}; margin-left:0px;"
+					: height}; font-family: gilroy, sans-serif; transition: all 1s ease-in-out; margin-left:0px;"
 				id="model-card-body"
 			>
 				<CardItem
 					translateZ={-50}
-					style="font-size:23px; position:absolute; top:35px; left:30px; font-family: gilroy, sans-serif; transition:all 1s ease-in-out;"
+					style="font-size:40px; 
+					align-items: center;
+					font-family: Fantasy;
+					transition:all 1s ease-in-out;
+					text-align: center;
+					margin: 25px;
+					width: 350px;
+					height:100px;
+					overflow: hidden"
+					
+					
+					posit
 					id="model-name"
 				>
-					yes
+					Title Event Place Holder Title Event Place Holder
+				</CardItem>
+				<CardItem>
+					<div>
+						<img src="https://placehold.co/800@3x.png" alt="image of the event"
+						style="border:1px solid #FFF;
+						border-radius: 4px;
+						border-color:orange;
+						box-shadow:0px 0px 10px white;
+ 						width: 300px;
+						height:200px;
+						object-fit:cover;
+						align-items: center;
+						position: relative;
+						left:12%;
+						bottom:5px;
+
+						 transform: translateZ(200px);
+						
+						">
+					</div>
 				</CardItem>
 				<CardItem
 					{isMouseEntered}
@@ -135,6 +168,25 @@
 							id="user-content"
 						></div>
 					</div>
+				<CardItem>
+					<div style="
+					position: absolute;
+					left:0px;
+					top: -80px;
+					aligh-items: center;
+					margin-right:25px;
+					margin-left:25px;
+					text-align:left;
+					white-space: nowrap;
+					transition:all .5s ease-out;
+					"
+					id="parameters"
+					><ul style="list-style:none;">
+						<li style="font-family:'Courier New', Courier, monospace">📍 City, Province, Country</li>
+						<li style="font-family:'Courier New', Courier, monospace">📆 00/00/00 </li>
+					</ul>
+				</div>
+				</CardItem>	
 				</CardItem>
 				<div
 					style="position: absolute; right:0; top:0; height:100%; width:auto; font-family: gilroy, sans-serif; align-items:center; justify-content:center; display:flex;"
@@ -142,10 +194,33 @@
 					<CardItem
 						{isMouseEntered}
 						translateZ={-20}
-						style="font-family: gilroy, sans-serif; max-width:300px; max-height:65px; padding:10px; margin-right:25px; text-align: right; -webkit-line-clamp: 2; -webkit-box-orient: vertical; display:-webkit-box;overflow:hidden; text-overflow:ellipsis; transition:all .5s ease-out; pointer-events:none; user-select:none;"
+						style="font-family: monospace;
+						position: relative;
+						bottom:-190px;
+						
+						margin-right:25px;
+						margin-left:25px;
+						text-align: justify;
+					
+						-webkit-line-clamp:4;
+						 -webkit-box-orient: vertical;
+						display:-webkit-box;
+						overflow:hidden;
+						text-overflow:ellipsis;
+						transition:all .5s ease-out;
+						pointer-events:none;
+						user-select:none;"
 						id="model-context"
 					>
-						description
+
+							Join us for [Event Name], a [brief description of event type—e.g., workshop, networking event, competition, social gathering] where you'll [mention key activities or benefits, e.g., learn new skills, connect with like-minded people, have fun].
+
+							Whether you're a [target audience, e.g., beginner, expert, student, professional], this event is a great opportunity to [key takeaway or reason to attend].
+
+
+							Stay tuned for more details, and we can't wait to see you there! 🚀
+							
+							
 					</CardItem>
 				</div>
 				<div

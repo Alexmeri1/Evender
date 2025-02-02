@@ -62,7 +62,6 @@ def getAvgPrice(eventId):
 if response.status_code == 200:
 
     data = response.json()
-
     # Check if there are events in the response
     if "_embedded" in data and "events" in data["_embedded"]:
         events = data["_embedded"]["events"]
@@ -73,7 +72,15 @@ if response.status_code == 200:
             date = event.get("dates", {}).get("start", {}).get("localDate", "No date available")
             venue = event.get("_embedded", {}).get("venues", [{}])[0].get("name", "No venue available")
             event_id = event["id"]
-            price = getAvgPrice(event_id)
+            
+            if "min" in data["priceRanges"][0] and "max" in data["priceRanges"][0]:
+                minimum = data["priceRanges"][0]["min"]
+                maximum = data["priceRanges"][0]["max"]
+                price = (maximum + minimum) / 2.0
+            else:
+                price = 0
+
+            event_url = event["url"]
 
             print(f"Event: {name}, with ID {event_id}")     
             print(f"Date: {date}")
@@ -82,6 +89,7 @@ if response.status_code == 200:
                 print(f"The average price is around: {price:.2f}$")
             else:
                 print("Sadly no price was found.")
+            print(f"Url: {event_url}")
             print("-" * 40)
     else:
         print("No events found.")
@@ -90,3 +98,4 @@ else:
     print(f"Response: {response.text}")
 
 
+ 

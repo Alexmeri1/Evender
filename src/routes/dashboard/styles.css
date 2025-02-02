@@ -126,23 +126,30 @@ width: 700px;
 position:absolute;
 margin: 5px;
 top: 15%;
-left:95%;
+left:98%;
 justify-content: flex-start; /* Align content to the left */
 align-items: center; /* Center vertically */
-padding-left: 20px; /* Optional: Adjust padding for more space */
+padding-left: 25px; /* Optional: Adjust padding for more space */
 text-align: left; /* Ensure text aligns to the left */
 
 }
 
-.decks h2{
+.decks button {
+  background-color: transparent;
+  border:none;
   color: var(--washed-white);
   transform: translateY(150px); 
   align-items: center;
   writing-mode: vertical-rl;
   text-orientation: upright;
-  
+  font-family: 'Courier New', Courier, monospace;
+}
+.decks button:active{
+  color:#000;
 }
 .decks:hover{
-  transform: translateX(-50%);
+  transform: translateX(-10%);
   transition: 1s ease-in-out;
 }
+
+

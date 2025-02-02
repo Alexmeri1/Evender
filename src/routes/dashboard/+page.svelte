@@ -5,7 +5,7 @@
   import leftArrow from '$lib/resources/icon/img/left_icon.svg';
   import rightArrow from '$lib/resources/icon/img/right_icon.svg';
   import deco01 from '$lib/resources/icon/img/circles2.svg';
-  
+ 
 </script>
 
 <svelte:head>
@@ -57,6 +57,7 @@
 </button>
 
 <div class="decks">
- 
-<h2>DECKS</h2>
+ <button><h2>DOWNLOAD</h2></button>
+
+
 </div>

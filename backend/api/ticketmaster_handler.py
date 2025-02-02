@@ -91,3 +91,5 @@ if response.status_code == 200:
 else:
     print(f"Failed to fetch data. Status code: {response.status_code}")
     print(f"Response: {response.text}")
+
+

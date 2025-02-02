@@ -19,14 +19,15 @@
     var(--cyan),
     var(--navy)
   );
+  
   background-blend-mode: multiply;
  
   min-height: 100vh;
   display: grid;
   place-items: center;
 }
+
 .card {
- 
   height: 500px;  
   width: 400px;  
 
@@ -42,10 +43,8 @@
   border-radius: 5rem;
   border-style: solid;
   border-color: #fce575;
-  
-  
-
 }
+
 .card:hover{
   transform-style: preserve-3d;
 
@@ -53,7 +52,6 @@
   transition: 3s ease-in-out;
   scale: 105%;
   display:block;
-
 }
 
 h2{

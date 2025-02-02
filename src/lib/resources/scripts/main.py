@@ -1,43 +1,92 @@
 import requests
+import information
 
-# Replace 'YOUR_API_KEY' with your actual Eventbrite API key
-API_KEY = 'YOUR_API_KEY'
-URL = 'https://www.eventbriteapi.com/v3/events/search/'
+# Replace with your Ticketmaster API key
+API_KEY = "dDWSsjMPLJbXiRcAzXzd1NzPiwJf1q4p"
 
-data = {
-    "code": "YOUR_ACCESS_CODE",
-    "client_secret": "CNJT445TL3PPN5BFUGOV73F3CGKTHJKGM42TIYLEKXSSBJ6T2S",
-    "client_id": "YOUR_API_KEY",
-    "grant_type": "authorization_code",
-}
+# API endpoint for event search
+url = "https://app.ticketmaster.com/discovery/v2/events.json"
 
+# Parameters for the API request
+ 
+userCity = information.getUserCity()
+userCountry = information.getUserCountry()
+userBeginDate =  information.getUserBeginDate()
+userEndDate = information.getUserEndDate()
+userPartySize = information.getUserBeginDate()
 
-# Set up the headers with your API key
-headers = {
-    'Authorization': f'Bearer {API_KEY}',
-}
-
-# Set up any parameters for the request
 params = {
-    'q': 'technology',  # Search for events related to technology
-    'sort_by': 'date',  # Sort by date
-    'location.address': 'San Francisco',  # Location
+    #My key
+    "apikey": API_KEY,
+
+    #Prefered city
+    "city": userCity,
+
+    "countryCode": userCountry,
+
+    "startDateTime": userBeginDate,
+    
+    "endDateTime": userEndDate,
+
+    #constant 100 first events
+
+    "size": 100
 }
 
-# Make the GET request to the Eventbrite API
-response = requests.get(URL, headers=headers, params=params)
+# Make the API request
+response = requests.get(url, params=params)
+print("\n")
+
+def getAvgPrice(eventId):
+    urlForPrice = (f"https://app.ticketmaster.com/discovery/v2/events/{eventId}.json?apikey=dDWSsjMPLJbXiRcAzXzd1NzPiwJf1q4p")
+    minimum = 0
+    maximum = 0
+    responseForAvg = requests.get(urlForPrice)
+    if responseForAvg.status_code == 200:
+        data = responseForAvg.json()
+        if "priceRanges" in data and "min" in data["priceRanges"][0] and "max" in data["priceRanges"][0]:
+            minimum = data["priceRanges"][0]["min"]
+            maximum = data["priceRanges"][0]["max"]
+            averagePrice = (maximum + minimum) / 2.0
+            return averagePrice
+        else:
+            return 0
+    else:
+        print(f"Failed to fetch data. Status code: {response.status_code}")
+        return 0
+
+
+
 
 # Check if the request was successful
 if response.status_code == 200:
-    # Parse the JSON response
+
     data = response.json()
-    events = data['events']
-    
-    # Print out the names and dates of the events
-    for event in events:
-        name = event['name']['text']
-        start = event['start']['local']
-        print(f"Event: {name}, Start: {start}")
+
+    # Check if there are events in the response
+    if "_embedded" in data and "events" in data["_embedded"]:
+        events = data["_embedded"]["events"]
+
+        # Print event details
+        for event in events:
+            name = event.get("name", "No name available")
+            date = event.get("dates", {}).get("start", {}).get("localDate", "No date available")
+            venue = event.get("_embedded", {}).get("venues", [{}])[0].get("name", "No venue available")
+            event_id = event["id"]
+            price = getAvgPrice(event_id)
+
+            print(f"Event: {name}, with ID {event_id}")     
+            print(f"Date: {date}")
+            print(f"Venue: {venue}")
+            if(price > 0):
+                print(f"The average price is around: {price:.2f}$")
+            else:
+                print("Sadly no price was found.")
+            print("-" * 40)
+    else:
+        print("No events found.")
 else:
-    print(f"Failed to fetch events: {response.status_code}")
-    print(response.text)
+    print(f"Failed to fetch data. Status code: {response.status_code}")
+    print(f"Response: {response.text}")
+
+

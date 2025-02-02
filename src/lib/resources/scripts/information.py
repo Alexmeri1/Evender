@@ -3,6 +3,7 @@ import json
 json_data = '''
 {
     "userName": "Alex M",
+
     "location": {
         "city": "Montreal",
         "country": "CA"
@@ -12,8 +13,10 @@ json_data = '''
         "end": "2025-02-03"
     },
     "groupSize": 10
+
 }
 '''
+
 data = json.loads(json_data)
 
 def getUserCity():
@@ -32,22 +35,3 @@ def getUserEndDate():
 
 def getGroupSize():
     return data["groupSize"]
-
-
-
-""" 
-
-{
-
-userData: { 
-
-    location: Array[null || String City, null || String Country (US OR CA)],
-    groupSize: int,
-    beginData: Array[Begin (YYYY-MM-DD), End (YYYY-MM-DD)],
-
-
-    }
-
-}
-
-"""

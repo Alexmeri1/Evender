@@ -7,8 +7,8 @@
 
 	export let id: string;
 	export let style: string = '';
-	export let height: number | string = '300px';
-	export let width: number | string = '300px';
+	export let height: number | string;
+	export let width: number | string;
 	export let background: string = 'blue';
 	export let color: string = 'white';
 	export let ButtonReactivity: object = {
@@ -105,9 +105,10 @@
 		<CardContainer
 			bind:isMouseEntered
 			{intensity}
-			style="border-radius: 20px; z-index:95; width:400px; height:500px; margin:0; margin-bottom:10px; color: {color}; transition: all 1s ease-in-out; transform: scale(1); opacity:1;"
+			style="border-radius: 20px; z-index:95; width:{width}; height:{height}; margin:0; margin-bottom:10px; color: {color}; transition: all 1s ease-in-out; transform: scale(1); opacity:1;"
 			id={mainId}
 			className={"yes"}
+      background={background}
 		>
 			<CardBody
 				className=" "

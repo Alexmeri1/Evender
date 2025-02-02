@@ -7,6 +7,7 @@
   export let intensity: string = "10, 100";
   export let style: string | undefined = undefined;
   export let id: string | undefined = undefined;
+  export let background: string = "blue";
 
   const [Intx, Inty] = intensity.split(",").map(Number);
   const intensityObject = { x: 100 / Intx, y: 100 / Inty };
@@ -49,7 +50,7 @@
       "relative flex items-center justify-center transition-all duration-200 ease-linear",
       className
     )}
-    style="transform-style: preserve-3d; width:400px; height:500px; background:linear-gradient(-45deg, cyan, blue); border-radius:20px"
+    style="transform-style: preserve-3d; width:400px; height:500px; background:{background}; border-radius:20px"
     {id}
   >
     <slot />

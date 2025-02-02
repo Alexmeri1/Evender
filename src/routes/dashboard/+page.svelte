@@ -12,8 +12,11 @@
 </svelte:head>
 
 <div class="body">
-  <div class="card">
-
-    <h2 class="card-title">Card.Title.blababalbal</h2>
-  </div>
+  <ModelCard
+    id="eventCard"
+    height={"500px"}
+    width={"400px"}
+    intensity="-10, 5"
+    background="linear-gradient(-45deg, cyan, blue)"
+  />
 </div>

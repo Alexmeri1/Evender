@@ -1,37 +1,43 @@
 import json
+import socket
 
-json_data = '''
-{
-    "userName": "Alex M",
+def save_to_file(data, filename="user_info.json"):
+    with open(filename, "w") as file:
+        json.dump(data, file, indent=4)
 
-    "location": {
-        "city": "Montreal",
-        "country": "CA"
-    },
-    "dates": {
-        "beginning": "2025-02-01",
-        "end": "2025-02-03"
-    },
-    "groupSize": 10
+HOST = "evender.co"
+PORT = 3000
 
-}
-'''
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.bind((HOST, PORT))
+server_socket.listen(5)
 
-data = json.loads(json_data)
+print(f"Server is listening on {HOST}:{PORT}...")
 
-def getUserCity():
-    return data["location"]["city"]
-   
-def getUserCountry():
-    return data["location"]["country"]
+while True:
+    conn, addr = server_socket.accept()
+    print(f"Connection from {addr}")
 
-def getUserBeginDate():
-    dateOfUser = data["dates"]["beginning"] + "T00:00:00Z"
-    return str(dateOfUser)
+    data = b""
+    while True:
+        chunk = conn.recv(1024)
+        if not chunk:
+            break
+        data += chunk
 
-def getUserEndDate():
-    dateOfUser = data["dates"]["end"] + "T00:00:00Z"
-    return str(dateOfUser)
+    if not data:
+        continue
 
-def getGroupSize():
-    return data["groupSize"]
+    try:
+        json_data = json.loads(data.decode('utf-8'))
+        save_to_file(json_data)  # Save JSON for Ticketmaster
+
+        print("Received and saved JSON:", json_data)
+
+        conn.sendall(b"JSON saved!")  
+
+    except json.JSONDecodeError:
+        print("Invalid JSON received")
+        conn.sendall(b"Invalid JSON")
+
+    conn.close()

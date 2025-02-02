@@ -1,0 +1,95 @@
+<script>
+	let userName = 'Alex M';
+	let locationCity = 'Montreal';
+	let locationCountry = 'CA';
+	let datesBeginning = '2025-02-01';
+	let datesEnd = '2025-02-03';
+	let groupSize = 10;
+</script>
+
+<main>
+    <form>
+        <div id="locationBoxes" style="display: flex">
+            <div class="form-group">
+                <label for="locationCity">City</label>
+                <div
+                    id="locationCity"
+                    style="border-top-right-radius: 0; border-bottom-right-radius: 0; border-right-width: 1px; display: flex; flex-direction: row;"
+                >
+                    <img src="city-icon.png" style="width: 10%; height: 100%;" />
+                    <input type="text" style="width: 90%; height: 100%;" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="locationCountry">Country</label>
+                <div
+                    id="locationCountry"
+                    style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-left-width: 1px; display: flex; flex-direction: row;"
+                >
+                    <img src="country-icon.png" style="width: 10%; height: 100%;" />
+                    <input type="text" style="width: 90%; height: 100%;" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="datesBeginning">Beginning Date</label>
+            <div type="date" id="datesBeginning" bind:value="{datesBeginning}" style="display: flex; flex-direction: row;">
+                <img src="date-icon.png" style="width: 10%; height: 100%;" />
+                <input type="date" style="width: 90%; height: 100%;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="datesEnd">End Date</label>
+            <div type="date" id="datesEnd" bind:value="{datesEnd}" style="display: flex; flex-direction: row;">
+                <img src="date-icon.png" style="width: 10%; height: 100%;" />
+                <input type="date" style="width: 90%; height: 100%;" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="groupSize">Group Size</label>
+            <div type="number" id="groupSize" bind:value="{groupSize}" style="display: flex; flex-direction: row;">
+                <img src="group-icon.png" style="width: 10%; height: 100%;" />
+                <input type="number" style="width: 90%; height: 100%;" />
+            </div>
+        </div>
+        <button type="submit">Submit</button>
+    </form></div>
+
+<style>
+	main {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+	}
+
+	label {
+		margin-bottom: 0.5rem;
+	}
+
+    .form-group div{
+        width: 500px;
+		height: 50px;
+		border-radius: 20px;
+		border-color: rgba(254, 175, 28, 0.5);
+		border-width: 5px;
+		background-color: rgba(255, 255, 79, 0.7);
+		border-style: solid;
+    }
+
+	#locationBoxes div {
+		width: 250px;
+	}
+</style>

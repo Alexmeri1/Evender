@@ -11,9 +11,10 @@
 	<title>Dashboard</title>
 </svelte:head>
 
-<div class="body">
+<div class="body" style="overflow:hidden;">
 
-  <ModelCard
+  <div id="modelcard-container">
+      <ModelCard
     id="eventCard"
     height={"500px"}
     width={"400px"}
@@ -23,21 +24,23 @@
     style="border-color: var(--pink);
     border-radius: 20px;
     border-width:10px;
-    box-shadow: 0px 0px 10px var(--pink); "
+    box-shadow: 0px 0px 10px var(--pink);"
     
   />
+  </div>
+
+  
 </div>
 
 
 
 
-<!-- to fix later -->
-<!--<div class="bg">
+<div class="bg">
  <img id="bg-deco01" src="/src/lib/resources/icon/img/circles2.svg" alt="Decorative Circles"/>
 </div>
 <div class="bg">
 <img id="bg-deco02" src="/src/lib/resources/icon/img/circles2.svg" alt="Decorative Circles"/>
-</div> -->
+</div>
 
 
 

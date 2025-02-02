@@ -8,20 +8,39 @@
   --bg: #929292;
 }
 
-.body{
+html, body {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Hide scrollbars */
-  background-color: black;
+  overflow: hidden; /* Prevents scrolling */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  z-index: -1;
+}
+
+.body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: transparent;
   min-height: 100vh;
   display: grid;
   place-items: center;
   
-  z-index: index -1;
+  z-index: index 1;
+}
+
+.body::-webkit-scrollbar {
+  display: none;
 }
 .eventCard{
  
-  z-index: index 1;
+  
   
   height: 500px;  
   width: 400px;  

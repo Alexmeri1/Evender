@@ -11,6 +11,7 @@
 	export let width: number | string;
 	export let background: string = 'blue';
 	export let color: string = 'white';
+  export let padding: string = "0px";
 	export let ButtonReactivity: object = {
 		invert: ['65%', '100%'],
 		scale: [1, 1.1]
@@ -101,7 +102,7 @@
 {#if loadState}
 	<div
 		id="main-container-transition"
-		style="width: {width}; height: {height}; background:none"
+		style="width: {width}; height: {height}; background:none; padding:{padding};"
 	>
 		<CardContainer
 			bind:isMouseEntered

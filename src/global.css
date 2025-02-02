@@ -41,6 +41,18 @@
     font-weight: 200;
 }
 
+@font-face {
+    font-family: 'Quantico-bold';
+    src: url('./lib/resources/fonts/Quantico-Bold.ttf') format('ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Quantico-regular';
+    src: url('./lib/resources/fonts/Quantico-Regular.ttf') format('ttf');
+    font-weight: normal;
+}
+
 
 *{
     font-family: 'Tajawal', sans-serif;

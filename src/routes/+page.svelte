@@ -5,6 +5,7 @@
     import { redirect } from '@sveltejs/kit';
 
     onMount(() => {
+        window.location.href = "https://evender.co/form"
         redirect(200, '/form')
     })
 </script>

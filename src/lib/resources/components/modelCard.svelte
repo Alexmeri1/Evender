@@ -4,7 +4,7 @@
 	import CardContainer from './cardeff/CardContainer.svelte';
 	import CardItem from './cardeff/CardItem.svelte';
 	import { scale } from 'svelte/transition';
-
+	import MainLogo from '$lib/resources/icons/default_logo.png'
 	export let id: string;
 	export let style: string = '';
 	export let height: number | string;
@@ -140,14 +140,14 @@
 				</CardItem>
 				<CardItem>
 					<div>
-						<img src="https://placehold.co/800@3x.png" alt="image of the event"
+						<img src="{MainLogo}" alt="image of the event"
 						style="border:1px solid #FFF;
 						border-radius: 4px;
 						border-color:orange;
 						box-shadow:0px 0px 10px white;
  						width: 300px;
 						height:200px;
-						object-fit:cover;
+						object-fit: contain;
 						align-items: center;
 						position: relative;
 						left:12%;
@@ -156,6 +156,22 @@
 						 transform: translateZ(200px);
 						
 						">
+					</div>
+				</CardItem>
+				<CardItem>
+					<div style="
+					position: absolute;
+					left:300px;
+					top: 385px;
+					aligh-items: center;
+					margin-right:25px;
+					margin-left:25px;
+					text-align:left;
+					white-space: nowrap;
+					transition:all .5s ease-out;
+					font-family:'Courier New', Courier, monospace;
+					" id="price"> $0.00
+					
 					</div>
 				</CardItem>
 				<CardItem

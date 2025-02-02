@@ -2,6 +2,10 @@
 	import './styles.css';
 	import '../../global.css';
 	import ModelCard from '$lib/resources/components/modelCard.svelte';
+  import leftArrow from '$lib/resources/icon/img/left_icon.svg';
+  import rightArrow from '$lib/resources/icon/img/right_icon.svg';
+  import deco01 from '$lib/resources/icon/img/circles2.svg';
+ 
 </script>
 
 <svelte:head>
@@ -11,9 +15,10 @@
 	<title>Dashboard</title>
 </svelte:head>
 
-<div class="body">
+<div class="body" style="overflow:hidden;">
 
-  <ModelCard
+  <div id="modelcard-container">
+      <ModelCard
     id="eventCard"
     height={"500px"}
     width={"400px"}
@@ -23,33 +28,36 @@
     style="border-color: var(--pink);
     border-radius: 20px;
     border-width:10px;
-    box-shadow: 0px 0px 10px var(--pink); "
+    box-shadow: 0px 0px 10px var(--pink);"
     
   />
+  </div>
+
+  
 </div>
 
 
 
 
-<!-- to fix later -->
-<!--<div class="bg">
- <img id="bg-deco01" src="/src/lib/resources/icon/img/circles2.svg" alt="Decorative Circles"/>
+<div class="bg">
+ <img id="bg-deco01" src="{deco01}" alt="Decorative Circles"/>
 </div>
 <div class="bg">
-<img id="bg-deco02" src="/src/lib/resources/icon/img/circles2.svg" alt="Decorative Circles"/>
-</div> -->
+<img id="bg-deco02" src="{deco01}" alt="Decorative Circles"/>
+</div>
 
 
 
 <button type="button" class="arrows">
-  <img id="right-arrow" src="/src/lib/resources/icon/img/right_icon.svg" alt="right arrow"/>
+  <img id="right-arrow" src="{rightArrow}" alt="right arrow"/>
 </button>
 
 <button type="button" class="arrows">
-  <img id="left-arrow" src="/src/lib/resources/icon/img/left_icon.svg" alt="left arrow"/>
+  <img id="left-arrow" src="{leftArrow}" alt="left arrow"/>
 </button>
 
 <div class="decks">
-  <!-- to finish -->
-<!-- <h1>DECKS</h1> -->
+ <button><h2>DOWNLOAD</h2></button>
+
+
 </div>

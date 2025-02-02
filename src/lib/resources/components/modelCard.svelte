@@ -157,6 +157,22 @@
 						">
 					</div>
 				</CardItem>
+				<CardItem>
+					<div style="
+					position: absolute;
+					left:300px;
+					top: 385px;
+					aligh-items: center;
+					margin-right:25px;
+					margin-left:25px;
+					text-align:left;
+					white-space: nowrap;
+					transition:all .5s ease-out;
+					font-family:'Courier New', Courier, monospace;
+					" id="price"> $0.00
+					
+					</div>
+				</CardItem>
 				<CardItem
 					{isMouseEntered}
 					translateZ={-60}

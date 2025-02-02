@@ -19,5 +19,5 @@
 		<LoadScreen status={loaded} />
 	</div>
 {:else}
-	<slot style="z-index: 98;"/>
+	<slot style="z-index: 98; overflow:hidden;"/>
 {/if}

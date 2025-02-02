@@ -8,20 +8,39 @@
   --bg: #929292;
 }
 
-.body{
+html, body {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Hide scrollbars */
-  background-color: black;
+  overflow: hidden; /* Prevents scrolling */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  z-index: -1;
+}
+
+.body{
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: transparent;
   min-height: 100vh;
   display: grid;
   place-items: center;
   
-  z-index: index -1;
+  z-index: index 1;
+}
+
+.body::-webkit-scrollbar {
+  display: none;
 }
 .eventCard{
  
-  z-index: index 1;
+  
   
   height: 500px;  
   width: 400px;  
@@ -114,13 +133,13 @@ padding-left: 20px; /* Optional: Adjust padding for more space */
 text-align: left; /* Ensure text aligns to the left */
 
 }
-/* TO FINISH THE ALINGMENT OF THE TITLE*/
-.decks h1{
-  text-align: center;
-  font-size: 100px;
+
+.decks h2{
   color: var(--washed-white);
-  display: flex; /* To help center content */
-  transform: rotate(90deg); /* Rotate text by 90 degrees */
+  transform: translateY(150px); 
+  align-items: center;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
   
 }
 .decks:hover{

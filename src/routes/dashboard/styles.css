@@ -106,7 +106,7 @@ html, body {
 }
 
 #right-arrow:active{
-  transform: scale(0.1);
+  transform: scale(0.9);
 }
 
 #left-arrow{
@@ -126,7 +126,7 @@ html, body {
 }
 
 #left-arrow:active{
-  transform: scale(0.1);
+  transform: scale(0.9);
 }
 
 

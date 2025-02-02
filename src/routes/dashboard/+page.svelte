@@ -11,8 +11,9 @@
 	<title>Dashboard</title>
 </svelte:head>
 
-<div style="background-color: transparent;">
+<div class="body">
+  <div class="card">
 
-  
-  <ModelCard id="any1" intensity="-10, 5"/>
+    <h2 class="card-title">Card.Title.blababalbal</h2>
+  </div>
 </div>

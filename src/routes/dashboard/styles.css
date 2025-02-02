@@ -1,20 +1,17 @@
 :root{
   --washed-white: #faffec;
-  --cute-yellow: #fce575;
-  --cyan: #69ecf4;
+  --cute-yellow: #ff9500;
+  --cyan: #000000;
   --light-blue: #4e7fcc;
-  --navy: #292f47;
+  --navy: #403d58;
   --pink: #b02656;
 }
 
-*,
-*::before,
-*::after{
-  box-sizing: border-box;
-}
-
-body {
-  background: hsl(217, 29%, 15%);
+.body{
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Hide scrollbars */
+  background: hsl(202, 13%, 33%);
   background-image: conic-gradient(
     from 0deg at 50% 50%, 
     var(--navy),
@@ -23,44 +20,51 @@ body {
     var(--navy)
   );
   background-blend-mode: multiply;
-  color: var(--washed-white);
+ 
   min-height: 100vh;
   display: grid;
   place-items: center;
 }
-
 .card {
-  background-color: var(--light-blue);
-  padding: 2rem;
-  border-radius: 1rem;
-
+ 
+  height: 500px;  
+  width: 400px;  
 
   position: relative;
-
   transform-style: preserve-3d;
 
-  transform: perspective(5000px) rotateX(20deg) rotateY(20deg);  /* Fix transform */
-  height: 300px;  /* Add a height to ensure it's visible */
-  width: 250px;  /* Optional: add width for better visualization */
-}
-
-.card::before,
-.card::after {
-  content: "";
-  position: absolute;
-  border-radius: inherit;
-}
-.card::before{
-  inset: 0.75rem;
-  background: black;
-  transform: translateZ(-49px);
-  filter: blur(15px);
-  opacity: 0.5;
-}
-
-.card::after {
+  transform: perspective(5000px) rotateX(-10deg) rotateY(-10deg);  /* Fix transform */
+  transition: 3s ease-in-out;
+ 
   inset: -1rem;
-  background: linear-gradient(-45deg, var(--cyan), var(--navy));
-  opacity: 0.6;  /* Adjust opacity for a subtle gradient */
+  background: linear-gradient(180deg, var(--cyan), var(--navy));
+  
+  border-radius: 5rem;
+  border-style: solid;
+  border-color: #fce575;
+  
+  
+
+}
+.card:hover{
+  transform-style: preserve-3d;
+
+  transform: perspective(5000px) rotateX(10deg) rotateY(10deg);  /* Fix transform */
+  transition: 3s ease-in-out;
+  scale: 105%;
+  display:block;
+
 }
 
+h2{
+  margin: 0;
+  padding: 2rem;
+  transform: translateY(10px) ;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 2rem;;
+  word-wrap: break-word;
+  overflow: break-word;
+  color: var(--cute-yellow);
+  text-shadow: 0px 0px 30px #ddff00;
+}

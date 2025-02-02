@@ -139,6 +139,32 @@
 		<button
 			style="display: flex; align-items: center; justify-content: center;"
 			on:click|preventDefault={() => (window.location.href = 'https://evender.co/dashboard')}
+            on:click|preventDefault={() => {
+                const city = (document.getElementById('citySelector') as HTMLSelectElement)?.value;
+                const country = (document.querySelector('#locationCountry select') as HTMLSelectElement)?.value;
+                const beginningDate = (document.querySelector('#datesBeginning input') as HTMLInputElement)?.value;
+                const endDate = (document.querySelector('#datesEnd input') as HTMLInputElement)?.value;
+                const groupSize = (document.querySelector('#groupSize input') as HTMLInputElement)?.value;
+
+                const formData = {
+                    city,
+                    country,
+                    beginningDate,
+                    endDate,
+                    groupSize
+                };
+
+                
+                // window.location.href = 'https://evender.co/dashboard';
+            const jsonData = JSON.stringify(formData);
+            const blob = new Blob([jsonData], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'formData.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            }}
 			><img src={lightning} alt="submit" width="30px" /></button
 		>
 	</form>

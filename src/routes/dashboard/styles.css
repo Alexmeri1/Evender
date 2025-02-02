@@ -133,13 +133,13 @@ padding-left: 20px; /* Optional: Adjust padding for more space */
 text-align: left; /* Ensure text aligns to the left */
 
 }
-/* TO FINISH THE ALINGMENT OF THE TITLE*/
-.decks h1{
-  text-align: center;
-  font-size: 100px;
+
+.decks h2{
   color: var(--washed-white);
-  display: flex; /* To help center content */
-  transform: rotate(90deg); /* Rotate text by 90 degrees */
+  transform: translateY(150px); 
+  align-items: center;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
   
 }
 .decks:hover{

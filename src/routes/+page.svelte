@@ -2,7 +2,6 @@
 	import '../global.scss';
 
 	import PartyScreen from '$lib/resources/components/partyBG.svelte';
-
 	import FullLogo from '$lib/resources/icons/FullLogo.png';
 	import MiddleLogo from '$lib/resources/icons/MiddleLogo.png';
 	import LeftLogo from '$lib/resources/icons/LeftLogo.png';

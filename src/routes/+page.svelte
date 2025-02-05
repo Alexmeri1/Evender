@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../global.css';
+	import '../global.scss';
 
 	import PartyScreen from '$lib/resources/components/partyBG.svelte';
 

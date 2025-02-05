@@ -5,7 +5,8 @@
 	import { slide } from 'svelte/transition';
 	import { cubicOut, cubicIn } from 'svelte/easing';
 
-	import '../../../global.scss';
+	import '$root/global.scss';
+	import { redirect } from '@sveltejs/kit';
 
 	export let simpl_bar = true;
 
@@ -28,7 +29,13 @@
 				<a class="underlined-text" href="" style="--underline-color:#ffffff;">About Us</a>
 				<a class="underlined-text" href="" style="--underline-color:#FF8C00;">Fill the form</a>
 			</div>
-			<img src={FullLogo} alt="fullLogo" height="50px" style="padding: 20px;" />
+			<button
+				type="button"
+				style="background: none; border: none; padding: 0; cursor: pointer;"
+				on:click={() => redirect(200, '/')}
+			>
+				<img src={FullLogo} alt="fullLogo" height="50px" style="padding: 20px;" />
+			</button>
 			<div class="wing right-wing">
 				<a class="underlined-text" href="" style="--underline-color:#4e7fcc;">Dashboard</a>
 				<a class="underlined-text" href="" style="--underline-color:#ba3b3b;">Sign-In</a>
@@ -40,14 +47,21 @@
 			out:slide={{ axis: 'y', duration: 700, easing: cubicIn }}
 			style="position: absolute; width:40vw; height:80px; background-color:#00000050; z-index:4; display:flex; align-self:center; justify-self: center; align-items:center; justify-content: center; border-radius:15px; backdrop-filter:blur(6px);"
 		>
-			<img src={MiddleLogo} alt="middleLogo" height="35px" style="padding: 20px; margin-left:0" />
+			<button
+				type="button"
+				style="background: none; border: none; padding: 0; cursor: pointer;"
+				on:click={() => redirect(200, '/')}
+			>
+				<img src={MiddleLogo} alt="middleLogo" height="35px" style="padding: 20px; margin-left:0" />
+			</button>
 			<div class="wing left-wing">
 				<a class="underlined-text" href="" style="--underline-color:#ffffff;">About Us</a>
 			</div>
 			<div class="wing right-wing">
 				<a class="underlined-text" href="" style="--underline-color:#4e7fcc;">Dashboard</a>
 				<button
-					style="background: #ba3b3b70; border:none; border-radius:10px; color:white; font-size:15px; width:120px; height:40px; position:relative; margin-left:60px"
+					id="sign-in-btn"
+					style="background:linear-gradient(45deg, #d46b6b80, #ba3b3b70); border:none; border-radius:10px; color:white; font-size:15px; width:120px; height:40px; position:relative; margin-left:60px; cursor:pointer; transition:background .5s ease-out;"
 				>
 					Sign-In
 				</button>
@@ -84,11 +98,4 @@
 		align-self: flex-end;
 		margin-right: 20px;
 	}
-
-	/* .left-wing a {
-	}
-
-	.right-wing a {
-		padding-right: 40px;
-	} */
 </style>

@@ -5,12 +5,6 @@
 
 	import FullLogo from '$lib/resources/icons/FullLogo.png';
 	import { onMount } from 'svelte';
-	// import MiddleLogo from '$lib/resources/icons/MiddleLogo.png';
-	// import LeftLogo from '$lib/resources/icons/LeftLogo.png';
-	// import RightLogo from '$lib/resources/icons/RightLogo.png';
-
-	// import { onMount } from 'svelte';
-	// import { redirect } from '@sveltejs/kit';
 
 	const typedTxtArray = [
 		['Events', '#ffa494'],
@@ -77,10 +71,6 @@
 						
 					</div>
 				</div>
-				<!-- <span
-					style="display:flex; position:relative;"
-					></span
-				> -->
 				<span
 					style="margin-top:-5px; margin-left:7px; font-family:Quantico-regular, sans-serif; font-size:26px"
 					class="middle-scale-und underlined-text">like never before</span

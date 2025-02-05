@@ -2,13 +2,14 @@
 	import '../global.scss';
 
 	import PartyScreen from '$lib/resources/components/partyBG.svelte';
+	
 	import FullLogo from '$lib/resources/icons/FullLogo.png';
-	import MiddleLogo from '$lib/resources/icons/MiddleLogo.png';
-	import LeftLogo from '$lib/resources/icons/LeftLogo.png';
-	import RightLogo from '$lib/resources/icons/RightLogo.png';
+	// import MiddleLogo from '$lib/resources/icons/MiddleLogo.png';
+	// import LeftLogo from '$lib/resources/icons/LeftLogo.png';
+	// import RightLogo from '$lib/resources/icons/RightLogo.png';
 
-	import { onMount } from 'svelte';
-	import { redirect } from '@sveltejs/kit';
+	// import { onMount } from 'svelte';
+	// import { redirect } from '@sveltejs/kit';
 </script>
 
 <div
@@ -64,50 +65,3 @@
 		</div>
 	</div>
 </div>
-
-<style>
-	.underlined-text {
-		color: inherit;
-		text-decoration: none;
-	}
-
-	/* Underline styles */
-	.underlined-text {
-		display: block;
-		position: relative;
-		padding: 0.2em 0;
-	}
-
-	/* Fade in */
-	.underlined-text::after {
-		content: '';
-		position: absolute;
-		bottom: 5px;
-		left: 0;
-		width: 100%;
-		height: 0.1em;
-		background-color: #ffa494;
-		opacity: 0;
-		transition:
-			opacity 300ms,
-			transform 300ms;
-	}
-
-	.underlined-text:hover::after,
-	.underlined-text:focus::after {
-		opacity: 1;
-		transform: translate3d(0, 0.2em, 0);
-	}
-
-	/* Scale from center */
-	.middle-scale-und::after {
-		opacity: 1;
-		transform: scale(0);
-		transform-origin: center;
-	}
-
-	.middle-scale-und:hover::after,
-	.middle-scale-und:focus::after {
-		transform: scale(1);
-	}
-</style>

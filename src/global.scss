@@ -36,3 +36,49 @@
 	padding: 0;
 	margin: 0;
 }
+.underlined-text {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    padding: 0.2em 0;
+    --underline-color: #ffa494; // Default color
+}
+
+/* Fade in */
+.underlined-text::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: var(--underline-color);
+    opacity: 0;
+    transition:
+        opacity 300ms,
+        transform 300ms;
+}
+
+.underlined-text:hover::after,
+.underlined-text:focus::after {
+    opacity: 1;
+    transform: translate3d(0, 0.2em, 0);
+}
+
+/* Scale from center */
+.middle-scale-und::after {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center;
+}
+
+.middle-scale-und:hover::after,
+.middle-scale-und:focus::after {
+    transform: scale(1);
+}
+
+/* Custom underline colors using data attribute */
+[data-underline-color]::after {
+    background-color: attr(data-underline-color color, #ffa494);
+}

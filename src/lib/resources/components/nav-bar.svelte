@@ -29,13 +29,12 @@
 				<a class="underlined-text" href="" style="--underline-color:#ffffff;">About Us</a>
 				<a class="underlined-text" href="" style="--underline-color:#FF8C00;">Fill the form</a>
 			</div>
-			<button
-				type="button"
+			<a
 				style="background: none; border: none; padding: 0; cursor: pointer;"
-				on:click={() => redirect(200, '/')}
+				href="/"
 			>
 				<img src={FullLogo} alt="fullLogo" height="50px" style="padding: 20px;" />
-			</button>
+			</a>
 			<div class="wing right-wing">
 				<a class="underlined-text" href="" style="--underline-color:#4e7fcc;">Dashboard</a>
 				<a class="underlined-text" href="" style="--underline-color:#ba3b3b;">Sign-In</a>
@@ -47,13 +46,12 @@
 			out:slide={{ axis: 'y', duration: 700, easing: cubicIn }}
 			style="position: absolute; width:40vw; height:80px; background-color:#00000050; z-index:4; display:flex; align-self:center; justify-self: center; align-items:center; justify-content: center; border-radius:15px; backdrop-filter:blur(6px);"
 		>
-			<button
-				type="button"
+			<a
 				style="background: none; border: none; padding: 0; cursor: pointer;"
-				on:click={() => redirect(200, '/')}
+				href="/"
 			>
 				<img src={MiddleLogo} alt="middleLogo" height="35px" style="padding: 20px; margin-left:0" />
-			</button>
+			</a>
 			<div class="wing left-wing">
 				<a class="underlined-text" href="" style="--underline-color:#ffffff;">About Us</a>
 			</div>

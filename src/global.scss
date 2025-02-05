@@ -3,8 +3,17 @@
 }
 
 @each $weight,
-	$value in
-		(Light: 300, Regular: 400, Medium: 500, Bold: bold, Black: 900, ExtraBold: 800, ExtraLight: 200) {
+	$value
+		in (
+			Light: 300,
+			Regular: 400,
+			Medium: 500,
+			Bold: bold,
+			Black: 900,
+			ExtraBold: 800,
+			ExtraLight: 200
+		)
+{
 	@font-face {
 		font-family: 'Tajawal';
 		src: url(font-url($weight));
@@ -37,48 +46,83 @@
 	margin: 0;
 }
 .underlined-text {
-    color: inherit;
-    text-decoration: none;
-    display: block;
-    position: relative;
-    padding: 0.2em 0;
-    --underline-color: #ffa494; // Default color
+	color: inherit;
+	text-decoration: none;
+	display: block;
+	position: relative;
+	padding: 0.2em 0;
+	--underline-color: #ffa494; // Default color
 }
 
 /* Fade in */
 .underlined-text::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 0;
-    width: 100%;
-    height: 0.1em;
-    background-color: var(--underline-color);
-    opacity: 0;
-    transition:
-        opacity 300ms,
-        transform 300ms;
+	content: '';
+	position: absolute;
+	bottom: 5px;
+	left: 0;
+	width: 100%;
+	height: 0.1em;
+	background-color: var(--underline-color);
+	opacity: 0;
+	transition:
+		opacity 300ms,
+		transform 300ms;
 }
 
 .underlined-text:hover::after,
 .underlined-text:focus::after {
-    opacity: 1;
-    transform: translate3d(0, 0.2em, 0);
+	opacity: 1;
+	transform: translate3d(0, 0.2em, 0);
 }
 
 /* Scale from center */
 .middle-scale-und::after {
-    opacity: 1;
-    transform: scale(0);
-    transform-origin: center;
+	opacity: 1;
+	transform: scale(0);
+	transform-origin: center;
 }
 
 .middle-scale-und:hover::after,
 .middle-scale-und:focus::after {
-    transform: scale(1);
+	transform: scale(1);
 }
 
-/* Custom underline colors using data attribute */
-[data-underline-color]::after {
-    background-color: attr(data-underline-color color, #ffa494);
+.container {
+	display: inline-block;
+}
+.typed-out {
+	overflow: hidden;
+	border-right: 0.15em solid orange;
+	white-space: nowrap;
+	animation:
+		typing 1s steps(20, end) forwards,
+		blinking 0.8s infinite;
+	font-size: 1.6rem;
+	width: 0;
+}
+@keyframes typing {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes untyping {
+	from {
+		width: 100%;
+	}
+	to {
+		width: 0;
+	}
+}
+
+@keyframes blinking {
+	from {
+		border-color: transparent;
+	}
+	to {
+		border-color: orange;
+	}
 }

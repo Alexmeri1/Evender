@@ -1,10 +1,10 @@
 <script lang="ts" customElements="model-card">
-	import { onMount } from 'svelte';
 	import CardBody from '$lib/resources/components/cardeff/CardBody.svelte';
 	import CardContainer from './cardeff/CardContainer.svelte';
 	import CardItem from './cardeff/CardItem.svelte';
-	import { scale } from 'svelte/transition';
+	
 	import MainLogo from '$lib/resources/icons/default_logo.png'
+	
 	export let id: string;
 	export let style: string = '';
 	export let height: number | string;

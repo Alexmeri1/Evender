@@ -10,40 +10,39 @@
 	export let status: boolean;
 
 	let ready = false;
-	let rotation = 0;
-	let animationFrame: number;
 	let animStart = false;
 
 	onMount(function () {
         setTimeout(() => {
             ready = true;
         }, 2000)
-		// animate();
 	});
 
 	$: if (ready && status) {
 		const middleLog = document.getElementById('mid-log');
         const parentContainer = document.getElementById("logo-parent")
-        
+        const mainCont = document.getElementById("main")
+
+        if(mainCont) mainCont.style.backgroundColor = "#00000050"
         if(parentContainer) parentContainer.style.borderColor = "#ffffff"
 		if (middleLog) middleLog.style.transform = `rotate(90deg)`;
-		setTimeout(() => {
+		setTimeout(function () {
 			animStart = true;
-		}, 1000);
+		}, 0);
 	}
 </script>
 
 <div
 	id="main"
-	style="width: 100vw; height:100vh; display:flex; align-items: center; justify-content: center; background-color: %00000075; backdrop-filter: blur(5px); z-index:99;"
+	style="width: 100vw; height:100vh; display:flex; align-items: center; justify-content: center; background-color: #000000; backdrop-filter: blur(5px); z-index:3; padding:0; margin:0; transition:background-color 1.4s ease-out"
 >
 	<div
 		id="logo-parent"
-		style="height: 70px; width:auto; align-items:center; justify-content: center; transition: all .5s cubic-bezier(0.25, 0.46, 0.45, 0.94); display:flex; flex-direction: row; padding:20px; border-style:solid; border-color:white; border-radius:15px; border-color:#ffffff30; background-color:#00000025;"
+		style="height: 70px; width:auto; align-items:center; justify-content: center; transition: all .5s cubic-bezier(0.25, 0.46, 0.45, 0.94); display:flex; flex-direction: row; padding:20px; border-style:solid; border-color:white; border-radius:15px; border-color:#ffffff30; background-color:#00000035;"
 	>
 		{#if animStart}
 			<img
-                in:slide={{ axis: 'x', duration: 500, easing: cubicInOut}}
+                in:slide={{ axis: 'x', duration: 500, easing: cubicInOut, delay:1000}}
 				src={LeftLogo}
 				alt="LeftLogo"
 				width="175px"
@@ -62,7 +61,7 @@
 		</div>
 		{#if animStart}
 			<img
-				in:slide={{ axis: 'x', duration: 500, easing: cubicInOut, delay: 500 }}
+				in:slide={{ axis: 'x', duration: 500, easing: cubicInOut, delay: 1600 }}
 				src={RightLogo}
 				alt="rightLogo"
 				id="right-log"
@@ -72,3 +71,10 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+    html, body{
+        padding:0;
+        margin:0;
+    }
+</style>

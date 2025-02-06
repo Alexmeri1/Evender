@@ -1,11 +1,11 @@
 <script lang="ts">
-	import calendarPlus from '$lib/resources/icons/calendar-plus.png';
-	import calendarMinus from '$lib/resources/icons/calendar-minus.png';
-	import person from '$lib/resources/icons/person.png';
-	import location from '$lib/resources/icons/location.png';
-	import city from '$lib/resources/icons/city.png';
-	import lightning from '$lib/resources/icons/lightning.png';
-	import MiddleLogo from '$lib/resources/icons/MiddleLogo.png';
+	import calendarPlus from '$lib/resources/icons/Webp/calendar-plus.webp';
+	import calendarMinus from '$lib/resources/icons/Webp/calendar-minus.webp';
+	import person from '$lib/resources/icons/Webp/person.webp';
+	import location from '$lib/resources/icons/Webp/location.webp';
+	import city from '$lib/resources/icons/Webp/city.webp';
+	import lightning from '$lib/resources/icons/Webp/lightning.webp';
+	import MiddleLogo from '$lib/resources/icons/Webp/MiddleLogo.webp';
 
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';

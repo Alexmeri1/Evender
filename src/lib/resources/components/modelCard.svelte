@@ -3,7 +3,7 @@
 	import CardContainer from './cardeff/CardContainer.svelte';
 	import CardItem from './cardeff/CardItem.svelte';
 	
-	import MainLogo from '$lib/resources/icons/default_logo.png'
+	import MainLogo from '$lib/resources/icons/Webp/default_logo.webp'
 	
 	export let id: string;
 	export let style: string = '';

@@ -3,7 +3,7 @@
 
 	import PartyScreen from '$lib/resources/components/partyBG.svelte';
 
-	import FullLogo from '$lib/resources/icons/FullLogo.png';
+	import FullLogo from '$lib/resources/icons/Webp/FullLogo.webp';
 	import { onMount } from 'svelte';
 
 	const typedTxtArray = [

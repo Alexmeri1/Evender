@@ -1,6 +1,6 @@
 <script lang="ts" customElements="nav-bar">
-	import FullLogo from '$lib/resources/icons/Low-FullLogo.png';
-	import MiddleLogo from '$lib/resources/icons/Low-MiddleLogo.png';
+	import FullLogo from '$lib/resources/icons/Webp/Low-FullLogo.webp';
+	import MiddleLogo from '$lib/resources/icons/Webp/Low-MiddleLogo.webp';
 
 	import { slide } from 'svelte/transition';
 	import { cubicOut, cubicIn } from 'svelte/easing';

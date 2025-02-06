@@ -5,8 +5,24 @@
 	import location from '$lib/resources/icons/location.png';
 	import city from '$lib/resources/icons/city.png';
 	import lightning from '$lib/resources/icons/lightning.png';
+	import MiddleLogo from '$lib/resources/icons/MiddleLogo.png';
 
 	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
+
+	let testData = {
+		location: {
+			city: 'Toronto',
+			country: 'CA'
+		},
+		dates: {
+			beginning: '2025-01-01',
+			end: '2025-02-20'
+		},
+		groupSize: '10'
+	};
+
+	let eventsLoad = false;
 
 	onMount(() => {
 		const CountrySel = document.getElementById('locationCountry');
@@ -57,12 +73,68 @@
 				}
 			}
 		});
+		// sendData(testData)
 	});
+
+	const sendData = async (data: any) => {
+		const loadBar = document.getElementById('loadBar');
+
+		if (loadBar) loadBar.style.width = `10%`;
+
+		try {
+			const response = await fetch('/form', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data)
+			});
+
+			if (loadBar) loadBar.style.width = `40%`;
+
+			const result: TicketEventObject[] = await response.json();
+
+			if (loadBar) loadBar.style.width = '62%';
+
+			if(result.length > 0) {
+
+			}
+			console.log(result);
+		} catch (error) {
+			console.error('Error:', error);
+		}
+	};
 </script>
 
 <main
-	style="overflow: hidden; z-index:95; background: radial-gradient(circle, transparent, #ba3b3b); padding;0; margin:-10px; width:100vw; height:100vh;"
+	style="overflow: hidden; z-index:1; background: radial-gradient(circle, transparent, #ba3b3b); padding;0; margin:-10px; width:100vw; height:100vh;"
 >
+	{#if eventsLoad}
+		<div
+			in:fade={{ duration: 500 }}
+			style="position:absolute; width: 100vw; height:100vh; z-index:1; background-color: #00000080; backdrop-filter: blur(3px) saturate(20%); transition:all 1s ease-out, width 0s, height 0s; margin:0; padding:0; display: flex; align-items: center; justify-content: center;"
+		>
+			<div
+				style="width: 100%; height:100px; display: flex; align-items: center; justify-content: center;"
+			>
+				<div
+					id="LogoCont"
+					style="width: 100px; height:100px; display: flex; position: relative; height:auto; align-content: center; justify-content: center;"
+				>
+					<img
+						src={MiddleLogo}
+						alt="logo"
+						width="80px"
+						style="display: flex; position: relative;"
+					/>
+					<div
+						id="loadBar"
+						style="position: absolute; width:0%; bottom:10.5px; left:20px; height:15px; background-color:#D9D9D9; border-radius:5px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; transition: width .5s cubic-bezier(0.215, 0.610, 0.355, 1);"
+					></div>
+				</div>
+			</div>
+		</div>
+	{/if}
 	<div
 		id="header"
 		style="width: 100vw; height:100vh; position:absolute; top:0; pointer-events:none; user-select:none;"
@@ -138,34 +210,33 @@
 		</div>
 		<button
 			style="display: flex; align-items: center; justify-content: center;"
-			on:click|preventDefault={() => (window.location.href = 'https://evender.co/dashboard')}
-            on:click|preventDefault={() => {
-                const city = (document.getElementById('citySelector') as HTMLSelectElement)?.value;
-                const country = (document.querySelector('#locationCountry select') as HTMLSelectElement)?.value;
-                const beginningDate = (document.querySelector('#datesBeginning input') as HTMLInputElement)?.value;
-                const endDate = (document.querySelector('#datesEnd input') as HTMLInputElement)?.value;
-                const groupSize = (document.querySelector('#groupSize input') as HTMLInputElement)?.value;
+			on:click|preventDefault={() => {
+				const city = (document.getElementById('citySelector') as HTMLSelectElement)?.value;
+				const country = (document.querySelector('#locationCountry select') as HTMLSelectElement)
+					?.value;
+				const beginningDate = (document.querySelector('#datesBeginning input') as HTMLInputElement)
+					?.value;
+				const endDate = (document.querySelector('#datesEnd input') as HTMLInputElement)?.value;
+				const groupSize = (document.querySelector('#groupSize input') as HTMLInputElement)?.value;
 
-                const formData = {
-                    city,
-                    country,
-                    beginningDate,
-                    endDate,
-                    groupSize
-                };
+				let data = {
+					location: {
+						city,
+						country
+					},
+					dates: {
+						beginning: beginningDate,
+						end: endDate
+					},
+					groupSize
+				};
 
-                
-                // window.location.href = 'https://evender.co/dashboard';
-            const jsonData = JSON.stringify(formData);
-            const blob = new Blob([jsonData], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'formData.json';
-            a.click();
-            URL.revokeObjectURL(url);
-            }}
-			><img src={lightning} alt="submit" width="30px" /></button
+				eventsLoad = true;
+
+				setTimeout(() => {
+					sendData(data);
+				}, 500);
+			}}><img src={lightning} alt="submit" width="30px" /></button
 		>
 	</form>
 </main>

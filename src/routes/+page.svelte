@@ -41,6 +41,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Evender • Home</title>
+</svelte:head>
+
 <div
 	id="main"
 	style="width: 100%; height: auto; display:block; justify-content: center; align-items: center; background-color: transparent; padding:0; margin:0;  z-index:1"

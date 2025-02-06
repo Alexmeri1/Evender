@@ -11,7 +11,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="initial-scale=1.0" />
 
-	<title>Dashboard</title>
+	<title>Evender • Dashboard</title>
 </svelte:head>
 
 <div class="body" style="overflow:hidden;">

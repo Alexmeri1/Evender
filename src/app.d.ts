@@ -8,6 +8,17 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+	
+	interface TicketEventObject {
+		city: string;
+		country: string;
+		date: string;
+		event_name: string;
+		info: string;
+		price: number;
+		url: string;
+		venue: string;
+	}
 }
 
 export {};

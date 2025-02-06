@@ -1,7 +1,7 @@
 <script lang="ts" customElements="load-screen">
-	import MiddleLogo from '$lib/resources/icons/MiddleLogo.png';
-	import LeftLogo from '$lib/resources/icons/LeftLogo.png';
-	import RightLogo from '$lib/resources/icons/RightLogo.png';
+	import MiddleLogo from '$lib/resources/icons/Low-MiddleLogo.png';
+	import LeftLogo from '$lib/resources/icons/Low-LeftLogo.png';
+	import RightLogo from '$lib/resources/icons/Low-RightLogo.png';
 
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';

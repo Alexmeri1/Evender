@@ -4,7 +4,7 @@
 	import RightLogo from '$lib/resources/icons/Webp/Low-RightLogo.webp';
 
 	import { onMount } from 'svelte';
-	import { slide } from 'svelte/transition';
+	import { slide, fade } from 'svelte/transition';
 	import { cubicInOut } from 'svelte/easing';
 
 	export let status: boolean;
@@ -33,8 +33,9 @@
 </script>
 
 <div
+	out:fade={{duration:500}}
 	id="main"
-	style="width: 100vw; height:100vh; display:flex; align-items: center; justify-content: center; background-color: #000000; backdrop-filter: blur(5px); z-index:3; padding:0; margin:0; transition:background-color 1.4s ease-out"
+	style="width: 100vw; height:100vh; display:flex; align-items: center; justify-content: center; background-color: #000000; backdrop-filter: blur(5px); z-index:3; padding:0; margin:0; transition:background-color 1.4s ease-out; position:absolute; top:0;"
 >
 	<div
 		id="logo-parent"
@@ -42,7 +43,7 @@
 	>
 		{#if animStart}
 			<img
-                in:slide={{ axis: 'x', duration: 500, easing: cubicInOut, delay:1000}}
+                in:slide={{ axis: 'x', duration: 500, easing: cubicInOut, delay: 1000}}
 				src={LeftLogo}
 				alt="LeftLogo"
 				width="175px"

@@ -30,7 +30,7 @@
 {/if}
 
 {#if loaded}
-  <div style="z-index: 1; overflow:hidden;">
+  <div style="z-index: 1; width:100vw; height:100vh; padding:0; margin:0;">
     <slot />
   </div>
 {/if}

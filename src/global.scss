@@ -88,7 +88,7 @@
 	overflow: hidden;
 	border-right: 0.15em solid orange;
 	white-space: nowrap;
-	--cursorBar: solid;
+	--cursorBarStyle: solid;
 	border-right-style: var(--cursorBarStyle);
 	animation:
 		typing 1s steps(20, end) forwards,

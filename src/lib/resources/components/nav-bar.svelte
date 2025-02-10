@@ -12,7 +12,7 @@
 
 	setInterval(() => {
 		simpl_bar = !simpl_bar;
-	}, 5000);
+	}, 7000);
 </script>
 
 <div
@@ -59,8 +59,8 @@
 				<a class="underlined-text" href="" style="--underline-color:#4e7fcc;">Dashboard</a>
 				<button
 					id="sign-in-btn"
-					style="background:linear-gradient(45deg, #d46b6b80, #ba3b3b70); border:none; border-radius:10px; color:white; font-size:15px; width:120px; height:40px; position:relative; margin-left:60px; cursor:pointer; transition:background .5s ease-out;"
-				>
+					style="background:linear-gradient(45deg, #d46b6b80, #ba3b3b70); border:none; border-radius:10px; color:white; font-size:15px; width:120px; height:40px; position:relative; margin-left:60px; cursor:pointer; transition:background .5s ease-out, filter .2s ease-out;"
+					>
 					Sign-In
 				</button>
 			</div>
@@ -69,6 +69,26 @@
 </div>
 
 <style>
+	#sign-in-btn:hover{
+		position: relative;
+		transition: box-shadow 0.5s ease-out;
+		filter: brightness(120%);
+	}
+	#sign-in-btn::after {
+		content: '';
+		position: absolute;
+		border-radius: 10px;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		box-shadow: 0 0px 10px rgba(212, 107, 107, 0.5), 0 8px 22px rgba(186, 59, 59, 0.5);
+		opacity: 0;
+		transition: opacity 0.3s ease-out;
+	}
+	#sign-in-btn:hover::after {
+		opacity: 1;
+	}
 	.wing {
 		display: flex;
 		flex-direction: row;
